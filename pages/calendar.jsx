@@ -22,7 +22,7 @@ const Calendar = (props) => {
 
  
     return (
-      <div className="flex mx-4 my-20">
+      <div >
         <table>
           <thead>
             <tr>

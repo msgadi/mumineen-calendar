@@ -1,6 +1,7 @@
 import arabicNumerals from "../constants/arabic-numerals";
 import Lazy from "lazy.js";
 import classnames from "classnames";
+import Swal from 'sweetalert2'
 
 const CalendarDay = (props) => {
   const isToday = () => {
@@ -11,7 +12,7 @@ const CalendarDay = (props) => {
     );
   };
 
-  const dayClassName = () => {
+  const dayClassName = () => { 
     return {
       day: !props.day.filler,
       filler: props.day.filler,
@@ -58,20 +59,27 @@ const CalendarDay = (props) => {
   };
 
   const onDayClick = (day) => {
-    if (!props.day.filler) {
-      props.onDayClick(day);
-    }
-    return false;
+    Swal.fire({
+      title: 'Work in Progress!',
+      text: 'Work In Progress',
+      icon: 'info',
+      confirmButtonText: 'Make Sense'
+    });
+    // TODO: Complete this function
+    // if (!props.day.filler) {
+    //   props.onDayClick(day);
+    // }
+    // return false;
   };
 
   return (
     <td
-      className="box-border h-32 w-32 p-4 border-4 box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2"
+      className={classnames("box-border h-32 w-32 p-4 border-4 box-decoration-slice   text-black px-2", dayClassName().today ? "bg-yellow-600" : "bg-white", dayClassName().filler ? "bg-slate-100" : "bg-white")}
       onClick={() => onDayClick(null, props.day)}
     >
-      <div className="hijri">{hijriDateString()}</div>
-      <div className="gregorian">{gregorianDateString()}</div>
-      <div className="day-icon">
+      <div className="text-4xl">{hijriDateString()}</div>
+      <div className="text-lg">{gregorianDateString()}</div>
+      <div className="">
         <i className={iconClassName()}></i>
       </div>
     </td>

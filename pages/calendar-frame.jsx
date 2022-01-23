@@ -8,8 +8,8 @@ import HijriCalendar from "../constants/hijri-calendar";
 import { miqaatsData } from "../data/miqaats";
 
 const CalendarFrame = (props) => {
-  const modalId = "modal"; 
-  const calendarInit = new HijriCalendar( 
+  const modalId = "modal";
+  const calendarInit = new HijriCalendar(
     props.today.getYear(),
     props.today.getMonth()
   );
@@ -72,33 +72,25 @@ const CalendarFrame = (props) => {
   };
 
   return (
-    <div className="container">
-      <div className="flex flex-row">
-        <div className="basis-3/4 bg-purple-400">
-          <YearControls year={calendar.getYear()} onYearChange={changeYear} />
-        </div>
-        <div className="basis-1/4">
-          <TodayButton onClick={navigateToToday} />
-        </div>
+    <div className="space-y-10">
+      <div className="flex flex-row justify-center items-center"> 
+          <YearControls year={calendar.getYear()} onYearChange={changeYear} /> 
+          <TodayButton onClick={navigateToToday} /> 
       </div>
-      <div className="flex flex-row mx-10">
-        <div className="basis-1/4 bg-pink-500">01</div>
-        <div className="basis-1/4">02</div>
-        <div className="basis-1/2">
-          <MonthControls
+      <div className="flex flex-row center justify-center">  
+        <MonthControls
             month={calendar.getMonth()}
             onMonthChange={changeMonth}
-          /></div>
-        
-      </div>
-
+          />  
+      </div> 
+    <div className="flex flex-row justify-center">
       <Calendar
         calendar={calendar}
         today={props.today}
         modalId={modalId}
         miqaats={miqaats}
         onDayClick={showModal}
-      />
+      /></div>
       {false && <Modal modalId={modalId} miqaats={miqaats} day={day} />}
     </div>
   );

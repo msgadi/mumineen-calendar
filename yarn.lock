@@ -2727,6 +2727,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+sweetalert2@^11.3.6:
+  version "11.3.6"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.3.6.tgz#531a5f64bf3a5a2eea393be57f225d5e9ca3c75e"
+  integrity sha512-0JBlA36T1e0fuihcyvg4FjoucCOYNmbYDLrEOenGMVg1Jw7UHaC7FmDFp1qf9UGbO89pjgDJrfkThYln8TrYEQ==
+
 tailwindcss@^3.0.12:
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.12.tgz#b43bf952dbfd62cec087319748eb69f8e1c7855d"
