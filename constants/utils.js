@@ -50,7 +50,7 @@ export const MONTH_NAMES = {
     }
 };
 
-export const getMonthName = (month) => MONTH_NAMES.long.en[month];
+export const getMonthName = (month) =>    MONTH_NAMES.long.en[month()] ;
 
 // is the specified Hijri year a Kabisa year?
 export const isKabisa = (year) => {

@@ -1,12 +1,10 @@
 import { daysInMonth } from './utils'
-import HijriDate from './hijri-date'
+import HijriDate from './original-hijri-date'
 import Lazy from 'lazy.js'
 
 let HijriCalendar = (function () {
 
-  var MIN_CALENDAR_YEAR = 1000, MAX_CALENDAR_YEAR = 3000;
-
-  // public
+  var MIN_CALENDAR_YEAR = 1000, MAX_CALENDAR_YEAR = 3000; 
 
   var hijriCalendar = function (year, month, iso8601) {
     this.year = year;
@@ -36,8 +34,9 @@ let HijriCalendar = (function () {
 
   // return day of week for the specified date
   hijriCalendar.prototype.dayOfWeek = function (date) {
-    var hijriDate = new HijriDate(this.year, this.month, date),
-      offset = this.iso8601 ? 0.5 : 1.5;
+    var hijriDate = new HijriDate(this.year, this.month, date);
+    var offset = this.iso8601 ? 0.5 : 1.5;
+    // console.log('hijridaet', hijriDate);
     return (hijriDate.toAJD() + offset) % 7;
   };
 
@@ -98,25 +97,7 @@ let HijriCalendar = (function () {
       ),
         gregorianDate = hijriDate.toGregorian();
       return dayHash(hijriDate, gregorianDate, true);
-    }, 6 - dayAtEndOfMonth).toArray();
-
-    ///////
-    var nextMonth = this.nextMonth(),
-      dim = daysInMonth(this.year, this.month),
-      dayAtEndOfMonth = this.dayOfWeek(daysInMonth);
-
-    if (nextMonth.getYear() === this.year && nextMonth.getMonth() === this.month)
-      return _.repeat(null, 6 - dayAtEndOfMonth).toArray();
-
-    return _.create(function (day) {
-      var hijriDate = new HijriDate(
-        nextMonth.getYear(),
-        nextMonth.getMonth(),
-        day + 1
-      ),
-        gregorianDate = hijriDate.toGregorian();
-      return dayHash(hijriDate, gregorianDate, true);
-    }, 6 - dayAtEndOfMonth);//.toArray();
+    }, 6 - dayAtEndOfMonth).toArray(); 
   };
 
   // return Hijri Calendar object for the previous month

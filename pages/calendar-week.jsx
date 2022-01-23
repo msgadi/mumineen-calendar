@@ -6,11 +6,9 @@ const CalendarWeek = (props) => {
         let today = props.today;
         let miqaats = props.miqaats;
         let onDayClick = props.onDayClick; 
-        return Lazy(props.week).map(function (day) {
-          if(day?.hijri?.year) {
+        return Lazy(props.week).map(function (day) { 
           const key = [day.hijri.year, day.hijri.month, day.hijri.date].join("-");
-          return ( <CalendarDay key={key} day={day} today={today} miqaats={miqaats} onDayClick={onDayClick} /> );
-        }
+          return ( <CalendarDay key={key} day={day} today={today} miqaats={miqaats} onDayClick={onDayClick} /> ); 
         }).toArray(); 
       };
 
