@@ -1,5 +1,5 @@
 import { daysInMonth } from './utils'
-import HijriDate from './original-hijri-date'
+import HijriDate from './hijri-date'
 import Lazy from 'lazy.js'
 
 let HijriCalendar = (function () {

@@ -71,10 +71,10 @@ const CalendarDay = (props) => {
     // }
     // return false;
   };
-
+  
   return (
     <td
-      className={classnames("box-border h-32 w-32 p-4 border-4 box-decoration-slice   text-black px-2", dayClassName().today ? "bg-yellow-600" : "bg-white", dayClassName().filler ? "bg-slate-100" : "bg-white")}
+      className={classnames("box-border h-32 w-32 p-4 border-4 box-decoration-slice text-black px-2", dayClassName().today ? "bg-yellow-600" : "bg-white", dayClassName().filler && "bg-slate-100",)}
       onClick={() => onDayClick(null, props.day)}
     >
       <div className="text-4xl">{hijriDateString()}</div>

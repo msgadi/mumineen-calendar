@@ -1,5 +1,5 @@
 import CalendarFrame from "./calendar-frame";
-import HijriDate from "../constants/original-hijri-date";
+import HijriDate from "../constants/hijri-date";
 import Header from './header';
 import Footer from './footer';
 
