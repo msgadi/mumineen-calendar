@@ -4,7 +4,7 @@ import Lazy from 'lazy.js'
 
 let HijriCalendar = (function () {
 
-  var MIN_CALENDAR_YEAR = 1000, MAX_CALENDAR_YEAR = 3000; 
+  var MIN_CALENDAR_YEAR = 1000, MAX_CALENDAR_YEAR = 3000;
 
   var hijriCalendar = function (year, month, iso8601) {
     this.year = year;
@@ -36,7 +36,6 @@ let HijriCalendar = (function () {
   hijriCalendar.prototype.dayOfWeek = function (date) {
     var hijriDate = new HijriDate(this.year, this.month, date);
     var offset = this.iso8601 ? 0.5 : 1.5;
-    // console.log('hijridaet', hijriDate);
     return (hijriDate.toAJD() + offset) % 7;
   };
 
@@ -47,7 +46,7 @@ let HijriCalendar = (function () {
       var hijriDate = new HijriDate(self.year, self.month, day + 1),
         gregorianDate = hijriDate.toGregorian();
       return dayHash(hijriDate, gregorianDate);
-    }, daysInMonth(this.year, this.month)).toArray();//.toArray();
+    }, daysInMonth(this.year, this.month)).toArray();
   };
 
   // return array of weeks for this month and year
@@ -97,7 +96,7 @@ let HijriCalendar = (function () {
       ),
         gregorianDate = hijriDate.toGregorian();
       return dayHash(hijriDate, gregorianDate, true);
-    }, 6 - dayAtEndOfMonth).toArray(); 
+    }, 6 - dayAtEndOfMonth).toArray();
   };
 
   // return Hijri Calendar object for the previous month

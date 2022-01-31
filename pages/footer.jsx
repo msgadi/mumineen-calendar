@@ -1,8 +1,11 @@
 const Footer = () => {
   return (
     <h3 className="flex flex-start justify-center text-sm mt-5">
-      © {new Date().getFullYear()}, Proudly made by <a className="text-blue-400" href="http://mohammedgadi.com"> &nbsp; Mohammed Gadi</a> . All rights reserved. Made with
-      Next.js and Tailwind CSS
+      © {new Date().getFullYear()}, Proudly made by{" "}
+      <a className="text-blue-400" href="http://mohammedgadi.com">
+        &nbsp; Mohammed Gadi
+      </a>
+      . All rights reserved. Made with Next.js and Tailwind CSS
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"

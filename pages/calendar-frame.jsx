@@ -2,7 +2,7 @@ import Calendar from "./calendar";
 import YearControls from "./year-controls";
 import MonthControls from "./month-controls";
 import TodayButton from "./today-button";
-import Modal from "./modal";
+import ShowMiqaats from "./modal";
 import { useState } from "react";
 import HijriCalendar from "../constants/hijri-calendar";
 import { miqaatsData } from "../data/miqaats";
@@ -16,6 +16,7 @@ const CalendarFrame = (props) => {
   const [calendar, setCalendar] = useState(calendarInit);
   const [miqaats, setMiqaats] = useState(miqaatsData);
   const [day, setDay] = useState(null);
+  const [popModal, setPopModal] = useState(false);
 
   // const   getInitialState= ()=> {
   //     return {
@@ -65,33 +66,39 @@ const CalendarFrame = (props) => {
 
   const showModal = (day) => {
     setDay(day);
-    document
-      .getElementById(modalId)
-      .getElementsByTagName("input")
-      .item(0).checked = true;
+    setPopModal(true);
   };
 
   return (
     <div className="space-y-10">
-      <div className="flex flex-row justify-center items-center"> 
-          <YearControls year={calendar.getYear()} onYearChange={changeYear} /> 
-          <TodayButton onClick={navigateToToday} /> 
+      <div className="flex flex-row justify-center items-center">
+        <YearControls year={calendar.getYear()} onYearChange={changeYear} />
+        <TodayButton onClick={navigateToToday} />
       </div>
-      <div className="flex flex-row center justify-center">  
+      <div className="flex flex-row center justify-center">
         <MonthControls
-            month={calendar.getMonth()}
-            onMonthChange={changeMonth}
-          />  
-      </div> 
-    <div className="flex flex-row justify-center">
-      <Calendar
-        calendar={calendar}
-        today={props.today}
-        modalId={modalId}
-        miqaats={miqaats}
-        onDayClick={showModal}
-      /></div>
-      {false && <Modal modalId={modalId} miqaats={miqaats} day={day} />}
+          month={calendar.getMonth()}
+          onMonthChange={changeMonth}
+        />
+      </div>
+      <div className="flex flex-row justify-center">
+        <Calendar
+          calendar={calendar}
+          today={props.today}
+          modalId={modalId}
+          miqaats={miqaats}
+          onDayClick={showModal}
+        />
+      </div>
+      {popModal && (
+        <ShowMiqaats
+          modalId={modalId}
+          miqaats={miqaats}
+          day={day}
+          show={popModal}
+          onClose={() => setPopModal(false)}
+        />
+      )}
     </div>
   );
 };
