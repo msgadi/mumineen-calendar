@@ -6,7 +6,7 @@ import Footer from './footer';
 import '../styles/globals.css'
 
 const Index = () => {
-    alert(new Date());
+    window.alert(new Date());
     return (
         <div className="container-fluid min-h-screen bg-gray-100 ">
             <Header />
